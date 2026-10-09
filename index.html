@@ -1,0 +1,376 @@
+<!-- templates/index.html (Updated with Print-Ready Export UI) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etsy Print Shop - Image Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #5a5a5a;
+            text-align: center;
+        }
+        .section {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .section h2 {
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .file-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .file-input-group input[type="file"] {
+            flex-grow: 1;
+        }
+        .preview-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-preview {
+            flex: 1 1 30%; /* Three previews per row */
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            min-width: 250px;
+            max-width: 30%;
+        }
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #fff;
+            object-fit: contain;
+        }
+        .image-preview p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+            word-break: break-all;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button, .button-group a.button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button-group button:hover, .button-group a.button:hover {
+            background-color: #45a049;
+        }
+        .radio-group, .checkbox-group, .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #fcfcfc;
+        }
+        .radio-group label, .checkbox-group label, .form-group label {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .status-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #d9534f;
+            text-align: center;
+        }
+        .success-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #5cb85c;
+            text-align: center;
+        }
+        .info-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #5bc0de;
+            text-align: center;
+        }
+        .clear-session-btn {
+            background-color: #f0ad4e !important;
+            float: right;
+            margin-bottom: 10px;
+        }
+        .clear-session-btn:hover {
+            background-color: #ec971f !important;
+        }
+        .flash-messages {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .flash-messages li {
+            padding: 8px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .flash-messages li.error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+        .flash-messages li.success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        .flash-messages li.warning {
+            background-color: #fdf7e1;
+            color: #8a6d3b;
+            border: 1px solid #faebcc;
+        }
+        .flash-messages li.info {
+            background-color: #d9edf7;
+            color: #31708f;
+            border: 1px solid #bce8f1;
+        }
+        input[type="range"] {
+            width: 150px; /* Adjust slider width */
+            margin: 0 10px;
+        }
+        .slider-output {
+            min-width: 30px;
+            text-align: center;
+        }
+        .output-files-section {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .output-files-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .output-files-list li {
+            margin-bottom: 5px;
+        }
+        .output-files-list a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .output-files-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('clear_session') }}" class="button clear-session-btn">Clear Session</a>
+        <h1>Midjourney Masterpiece Creator</h1>
+
+        <ul class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </ul>
+
+        <div class="section upload-section">
+            <h2>1. Upload Your Image</h2>
+            <form method="POST" enctype="multipart/form-data" class="file-input-group">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Upload & Display</button>
+            </form>
+        </div>
+
+        {% if uploaded_image_url %}
+        <div class="section upscale-section">
+            <h2>2. Upscale Image to Print Size</h2>
+            <form method="POST" class="upscale-form">
+                <div class="radio-group">
+                    {% for size in print_sizes %}
+                    <label>
+                        <input type="radio" name="upscale_size" value="{{ size }}" {% if loop.first %}checked{% endif %}> {{ size }} (300 DPI)
+                    </label>
+                    {% endfor %}
+                </div>
+                <div class="button-group">
+                    <button type="submit">Upscale Image</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if upscaled_image_url %}
+        <div class="section mockup-section">
+            <h2>3. Generate Mockups</h2>
+            <form method="POST" class="mockup-form">
+                <div class="checkbox-group">
+                    <strong>Select Mockup Types:</strong><br>
+                    {% for m_type in mockup_types %}
+                    <label>
+                        <input type="checkbox" name="mockup_type" value="{{ m_type }}" checked> {{ m_type.replace('_', ' ').title() }}
+                    </label>
+                    {% endfor %}
+                </div>
+                <div class="radio-group">
+                    <strong>Artwork Orientation:</strong><br>
+                    <label>
+                        <input type="radio" name="artwork_orientation" value="landscape" checked> Landscape
+                    </label>
+                    <label>
+                        <input type="radio" name="artwork_orientation" value="portrait"> Portrait
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="preserve_aspect_ratio" checked> Preserve Aspect Ratio
+                    </label>
+                    <label>
+                        <input type="checkbox" name="apply_perspective"> Apply Perspective
+                    </label>
+                </div>
+                <div class="button-group">
+                    <button type="submit" name="generate_mockups" value="true">Generate Mockups</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if generated_mockup_urls %}
+        <div class="section export-section">
+            <h2>4. Export Print-Ready Files</h2>
+            <form method="POST" class="export-form">
+                <div class="form-group">
+                    <strong>Output Format:</strong><br>
+                    <label>
+                        <input type="radio" name="output_format" value="PNG" checked> PNG
+                    </label>
+                    <label>
+                        <input type="radio" name="output_format" value="JPEG"> JPEG
+                    </label>
+                    <label for="jpeg_quality">JPEG Quality:</label>
+                    <input type="range" id="jpeg_quality" name="jpeg_quality" min="0" max="100" value="95" oninput="this.nextElementSibling.value=this.value">
+                    <output>95</output>
+                </div>
+                <div class="button-group">
+                    <button type="submit" name="export_print_ready" value="true">Export Print-Ready</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+        <div class="section preview-section">
+            <h2>Image Previews</h2>
+            <div class="preview-group">
+                <div class="image-preview">
+                    <h3>Original</h3>
+                    {% if uploaded_image_url %}
+                        <img src="{{ uploaded_image_url }}" alt="Original Image">
+                        <p>File: <code>{{ uploaded_filename }}</code></p>
+                    {% else %}
+                        <p>No original image uploaded.</p>
+                    {% endif %}
+                </div>
+                <div class="image-preview">
+                    <h3>Upscaled</h3>
+                    {% if upscaled_image_url %}
+                        <img src="{{ upscaled_image_url }}" alt="Upscaled Image">
+                        <p>File: <code>{{ upscaled_image_url.split('/')[-1] }}</code></p>
+                    {% else %}
+                        <p>No upscaled image yet.</p>
+                    {% endif %}
+                </div>
+                {% if generated_mockup_urls %}
+                    {% for mockup_url in generated_mockup_urls %}
+                    <div class="image-preview">
+                        <h3>Mockup {{ loop.index }}</h3>
+                        <img src="{{ mockup_url }}" alt="Generated Mockup {{ loop.index }}">
+                        <p>File: <code>{{ mockup_url.split('/')[-1] }}</code></p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="image-preview">
+                    <h3>Mockups</h3>
+                    <p>No mockups generated yet.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if exported_print_ready_urls %}
+        <div class="section output-files-section">
+            <h2>Exported Print-Ready Files</h2>
+            <ul class="output-files-list">
+                {% for print_ready_url in exported_print_ready_urls %}
+                <li><a href="{{ print_ready_url }}" target="_blank">{{ print_ready_url.split('/')[-1] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Update JPEG Quality slider output
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const qualitySlider = document.getElementById('jpeg_quality');
+            if (qualitySlider) {
+                const output = qualitySlider.nextElementSibling;
+                if (output && output.tagName.toLowerCase() === 'output') {
+                    qualitySlider.addEventListener('input', () => {
+                        output.value = qualitySlider.value;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
