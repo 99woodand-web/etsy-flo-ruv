@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "logo_path": "logo.png",
+  "watermark_mockups": false,
+  "opacity": 255,
+  "position": "bottom_center"
+}

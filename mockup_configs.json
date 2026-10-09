@@ -1,0 +1,296 @@
+{
+    "living_room": {
+        "template_path": "C:/Temp/Etsy - Flo-ruv/living_room_mockup.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    621,
+                    651
+                ],
+                [
+                    1781,
+                    651
+                ],
+                [
+                    1781,
+                    1458
+                ],
+                [
+                    621,
+                    1458
+                ]
+            ],
+            "portrait": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ]
+        }
+    },
+    "kitchen": {
+        "template_path": "kitchen_mockup.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    528,
+                    315
+                ],
+                [
+                    1075,
+                    315
+                ],
+                [
+                    1075,
+                    702
+                ],
+                [
+                    528,
+                    702
+                ]
+            ],
+            "portrait": [
+                [
+                    480,
+                    80
+                ],
+                [
+                    550,
+                    90
+                ],
+                [
+                    560,
+                    500
+                ],
+                [
+                    470,
+                    490
+                ]
+            ]
+        }
+    },
+    "bedroom": {
+        "template_path": "bedroom_mockup.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    528,
+                    314
+                ],
+                [
+                    1075,
+                    314
+                ],
+                [
+                    1075,
+                    702
+                ],
+                [
+                    528,
+                    702
+                ]
+            ],
+            "portrait": [
+                [
+                    550,
+                    150
+                ],
+                [
+                    650,
+                    160
+                ],
+                [
+                    660,
+                    700
+                ],
+                [
+                    540,
+                    690
+                ]
+            ]
+        }
+    },
+    "living_room1": {
+        "template_path": "C:/Temp/Etsy - Flo-ruv/templates/living_room1_mockup.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    660,
+                    544
+                ],
+                [
+                    1779,
+                    559
+                ],
+                [
+                    1694,
+                    1527
+                ],
+                [
+                    592,
+                    1386
+                ]
+            ],
+            "portrait": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ]
+        }
+    },
+    "bathroom_portrait": {
+        "template_path": "C:/Temp/Etsy - Flo-ruv/templates/bathroom_mockup_portrait.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "portrait": [
+                [
+                    844,
+                    128
+                ],
+                [
+                    1013,
+                    111
+                ],
+                [
+                    1011,
+                    391
+                ],
+                [
+                    844,
+                    391
+                ]
+            ]
+        }
+    },
+    "bedroom1_landscape": {
+        "template_path": "C:/Temp/Etsy - Flo-ruv/templates/bedroom1_mockup_landscape.jpg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    542,
+                    130
+                ],
+                [
+                    868,
+                    130
+                ],
+                [
+                    868,
+                    377
+                ],
+                [
+                    542,
+                    377
+                ]
+            ],
+            "portrait": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ]
+        }
+    },
+    "beachhut_portrait": {
+        "template_path": "C:/Temp/Etsy - Flo-ruv/templates/beachhut_A3_portrait.jpeg",
+        "perspective": true,
+        "position_data": {
+            "landscape": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "portrait": [
+                [
+                    719,
+                    162
+                ],
+                [
+                    987,
+                    144
+                ],
+                [
+                    983,
+                    551
+                ],
+                [
+                    720,
+                    535
+                ]
+            ]
+        }
+    }
+}
